@@ -47,6 +47,7 @@ namespace View_App.Models
 
         [StringLength(50, MinimumLength = 1)]
         [Required(ErrorMessage = "Please Provide Confirm")]
+        [Compare("Password", ErrorMessage = "The '{1}' and '{0}' fields do not match.")]
         public string Confirmpassword { get; set; }
 
 
