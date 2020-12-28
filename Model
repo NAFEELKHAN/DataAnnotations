@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace View_App.Models
+{
+    public class DataAnotations
+    {
+        [ScaffoldColumn(false)]
+        public int DataAnotationsId { get; set; }
+
+
+        //Username Data Annotations
+
+
+        [RegularExpression("^[a-zA-Z0-9]*$", ErrorMessage = "Only Alphabets and Numbers allowed.")]
+        [StringLength(50,MinimumLength =1)]
+        [Required(ErrorMessage ="Please Provide Username")]
+        public string Username { get; set; }
+
+
+        //Father Data Annotation
+
+        [StringLength(50, MinimumLength = 1)]
+        [Required(ErrorMessage = "Please Provide Fathername")]
+        public string Fathername { get; set; }
+
+
+        //Email Data Annotations
+
+        [RegularExpression(@"\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b")]
+        [StringLength(50, MinimumLength = 1)]
+        [Required(ErrorMessage = "Please Provide Email")]
+        public string Email { get; set; }
+
+
+        //Password Data Annotations
+
+        [StringLength(500, ErrorMessage = "Max 500 characters")]
+        [Required(ErrorMessage = "Please Provide Password")]
+        public string Password { get; set; }
+
+
+        //CnfPassword Data Annotations
+
+        [StringLength(50, MinimumLength = 1)]
+        [Required(ErrorMessage = "Please Provide Confirm")]
+        public string Confirmpassword { get; set; }
+
+
+        //Range from 10 to 1000
+
+
+        [Range(10, 1000, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public string Weight { get; set; }
+
+    }
+}
